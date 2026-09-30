@@ -1,32 +1,14 @@
-# Week 11: SAMD21 CAN bus board (early version)
+# Week 11: SAMD21 CAN board, early version
 
-An early SAMD21 board for the week 11 CAN bus experiments; the finished sender/receiver pair is in `../week11_12_can_bus_link`.
+The first layout of the week 11 CAN board: an ATSAMD21E18A, AP1117-5.0 and NCP1117-3.3 regulators, a power switch, a 10-pin SWD header, and a 7-pin socket for an MCP2515 module, on a 40 × 45 mm board. It was superseded by the sender and receiver pair in [`../week11_12_can_bus_link`](../week11_12_can_bus_link), which is the version that was built and tested.
 
-![Week 11: SAMD21 CAN bus board (early version)](../docs/images/week11/result-0.jpg)
+Full write-up: [week11_networking.md](../docs/writeups/week11_networking.md)
 
-Full write-up: [week11_networking.md](../docs/writeups/week11_networking.md).
+## Files
 
-_Part of [htmaa_2022](../README.md), MIT How to Make (Almost) Anything, fall 2022. Formerly `can_project`._
-
-## Status
-
-| Area | Status |
+| Path | What |
 |---|---|
-| Electrical | Mostly done (routed, no Gerbers) |
-| Firmware | Not started |
+| `electrical/can_board/Can_Project.kicad_pro` | KiCad 6 project (schematic + PCB). No Gerbers were exported. |
+| `electrical/can_board/samd21.pretty/` | SAMD21E (TQFP-32) footprint |
 
-## What's here
-
-| Folder | Contents |
-|---|---|
-| `electrical/` | KiCad board projects, circuit sims — `can_board` |
-
-See [docs/STRUCTURE.md](docs/STRUCTURE.md) for the layout conventions.
-
-## Build / run
-
-_TODO: tools + versions, and the steps to rebuild or reproduce._
-
-## Results
-
-_TODO: what worked, measurements, photos._
+_Formerly `can_project`. Part of [htmaa_2022](../README.md), MIT How to Make (Almost) Anything, fall 2022._

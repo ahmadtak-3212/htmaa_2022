@@ -38,9 +38,9 @@ For this weeks assignment I wanted to play around with CAN transceivers. This is
 
  This part was relatively simple, I only had one major bug. I wrote two firmwares for this week. The sender sends frames on the CAN bus at a rate of 125kbs, sending 2 frames every second and flashes an LED everytime it sends a frame. The second if it receives a frame with no error message it will simply turn on an LED. There isn't much going on with this code it was just meant to be a first circle in my exploration of CAN. Although there wasn't much this was still fun to make and see work.
 
- [Download Sender Code](../images/week11/khan_reciever_firmware.ino)
+ [Download Sender Code](../images/week11/khan_sender_firmware.ino)
 
- [Download Receiver Code](../images/week11/khan_sender_firmware.ino)
+ [Download Receiver Code](../images/week11/khan_reciever_firmware.ino)
 
 [Video: working.mp4](../images/week11/working.mp4)
 

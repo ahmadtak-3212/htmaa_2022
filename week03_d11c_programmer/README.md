@@ -1,31 +1,30 @@
 # Week 3: SAMD11C CMSIS-DAP programmer
 
-Milled a SAMD11C (D11C) CMSIS-DAP programmer on the Bantam mill (working around the mill software's three-tool-change limit), hand-soldered it, flashed it with edbg, and used it to program another board. Also characterized the mill's minimum trace/clearance (16 mil with a 1/64" end mill) for the group.
+A milled, hand-soldered **SAMD11C14 (D11C) CMSIS-DAP / SWD programmer**, the class's `hello.CMSIS-DAP.10.D11C` design. Once flashed, it programmed another board.
 
-![Week 3: SAMD11C CMSIS-DAP programmer](../docs/images/week03/result.jpg)
-
-Full write-up: [week03_electronics_production.md](../docs/writeups/week03_electronics_production.md).
-
-_Part of [htmaa_2022](../README.md), MIT How to Make (Almost) Anything, fall 2022. Formerly `indi_project`._
-
-## Status
-
-| Area | Status |
+| Result | Traces |
 |---|---|
-| Electrical | Done (Gerbers exported) |
+| ![Programmer](../docs/images/week03/result.jpg) | ![Board render](../docs/images/renders/week03_programmer.png) |
 
-## What's here
+Full write-up: [week03_electronics_production.md](../docs/writeups/week03_electronics_production.md)
 
-| Folder | Contents |
+## Files
+
+| Path | What |
 |---|---|
-| `electrical/` | KiCad board projects, circuit sims — `cmsis_dap_programmer` |
+| `electrical/cmsis_dap_programmer/programmer_footprint/*.kicad_mod` | Trace and outline footprints converted from the class PNGs with KiCad 6's Image Converter |
+| `electrical/cmsis_dap_programmer/untitled.kicad_pcb` | Board built from those footprints |
+| `electrical/cmsis_dap_programmer/f_out/` | Gerbers for milling (`F_Cu`, `Edge_Cuts`) |
 
-See [docs/STRUCTURE.md](docs/STRUCTURE.md) for the layout conventions.
+## Rebuild
 
-## Build / run
-
-_TODO: tools + versions, and the steps to rebuild or reproduce._
+1. **Mill:** load `f_out/` into the Bantam mill software. Use a 1/64" end mill for traces and a 1/32" end mill for the outline. The group test found the minimum trace width and clearance for our mill to be **16 mil** with a 1/64" bit. The Bantam software allows only three tool changes, so the write-up describes how to split the job.
+2. **Stuff:** solder the SAMD11C14, the 3.3 V regulator, and the header and passives from the class BOM. Use flux and solder paste if you can, then check for shorts with a multimeter.
+3. **Flash:** connect an existing CMSIS-compatible programmer (we used an Atmel programmer) to the SWD header, then flash the class's CMSIS-DAP firmware binary with `edbg`.
+4. **Test:** use the new programmer to program another board.
 
 ## Results
 
-_TODO: what worked, measurements, photos._
+The programmer enumerated and successfully programmed another board. Hand soldering took about 45 minutes, and the one short found was cleared with a solder sucker.
+
+_Formerly `indi_project`. Part of [htmaa_2022](../README.md), MIT How to Make (Almost) Anything, fall 2022._
